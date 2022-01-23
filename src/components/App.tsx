@@ -2,12 +2,19 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
 import { ITodo } from '../types/data';
-import { Input } from '@mui/material';
+import { TodoList } from './TodoList';
+
+/*This is imports are for @matrial-ui */
+//import { Input } from '@mui/material';
 
 
 const App: React.FC = () => {
   const [value, setValue] = useState<string>('');
   const [todos, setTodos] = useState<ITodo[]>([]);
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setValue(e.target.value)
+  }
 
   const addTodo = () => {
     if (value.trim() !== '') {
@@ -25,9 +32,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div>
-        <input value={value} onChange={e => setValue(e.target.value)}></input>
+        <input value={value} onChange={handleChange}></input>
         <button onClick={addTodo}> КНОПКА </button>
       </div>
+      <TodoList items={todos} />
     </div>
   );
 }
