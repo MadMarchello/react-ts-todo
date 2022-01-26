@@ -12,9 +12,13 @@ interface ITodoListProps {
 const TodoList: React.FC<ITodoListProps> = (props) => {
     const { items, removeTodo, toggleTodo } = props;
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'}}>
             {
                 items.map(todo =>
+                    
                     <TodoItem
                         key={todo.id}
                         removeTodo={removeTodo}
