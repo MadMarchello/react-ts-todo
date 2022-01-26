@@ -74,11 +74,10 @@ const TodoItem: React.FC<ITodoItem> = (props) => {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "row",
-                maxWidth: '50%'
+                width: '100%'
             }}
         >
             <Grid item xs={3}>
-
                 <IconCheckboxes checked={complete} onChange={() => toggleTodo(id)} />
             </Grid>
 
